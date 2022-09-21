@@ -35,7 +35,7 @@ else
 
     echo -e "\nError using inputs '$1' '$2'"
     echo -e "Directory and console name required in proper format:\n"
-    echo -e "USAGE   : pgsk [DIRECTORY] [PLATFORM]\n"
+    echo "USAGE   : pgsk [DIRECTORY] [PLATFORM]"
     echo "EXAMPLE : pgsk ~/Games/GBA/ gba"
 
 fi
