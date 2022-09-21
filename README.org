@@ -7,12 +7,8 @@ Screenscraper is used as the default scraper.
 The media folder and the metadata file are both stored [DIRECTORY]
 
 * Dependencies
-+ =Skyscraper v3.7.7+= AUR / [[https://github.com/muldjord/skyscraper][github]]
-  - AUR (using yay)
-    - =yay -S skyscraper-git=
++ =skyscraper-git=       AUR / [[https://github.com/muldjord/skyscraper][github]]
 + =pegasus-frontend-git= AUR / [[https://github.com/mmatyas/pegasus-frontend][github]]
-  - AUR (using yay)
-    - =yay -S pegasus-frontend-git=
 + =wget=
   - Debian
     - =sudo apt install wget=
