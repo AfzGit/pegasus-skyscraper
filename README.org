@@ -19,17 +19,17 @@ Download and store pgsk in /usr/bin
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk && chmod a+x pgsk && sudo mv pgsk /usr/bin/
 #+END_SRC
 ** Step by step
-1. Download the script using =wget= (or from the [[https://github.com/AfzGit/pegasus-skyscraper/releases/tag/Latest][Releases]] page)
+- Download the script using =wget= (or from the [[https://github.com/AfzGit/pegasus-skyscraper/releases/tag/Latest][Releases]] page)
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk
 #+END_SRC
 
-2. Give the script permission to execute
+- Give the script permission to execute
 #+BEGIN_SRC bash
 chmod a+x pgsk
 #+END_SRC
 
-3. Move it in one of your =$PATH= folder for easy access (like =/usr/bin=)
+- Move it in one of your =$PATH= folder for easy access (like =/usr/bin=)
 #+BEGIN_SRC bash
 sudo mv pgsk /usr/bin/
 #+END_SRC
