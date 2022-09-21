@@ -13,7 +13,7 @@ Screenscraper is used as the default scraper.
   - Arch
     - =sudo pacman -S wget=
 * Installation
-Download and store pgsk in /usr/bin
+- Download with =wget=, give execution permission and store pgsk in /usr/bin
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk
 chmod a+x pgsk
