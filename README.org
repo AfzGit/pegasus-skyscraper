@@ -1,1 +1,6 @@
-hello
+* About
+Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend.
+* Installation
+** Dependencies
+    =skyscraper v3.7.7+= AUR
+    [[https://github.com/muldjord/skyscraper][github]]
