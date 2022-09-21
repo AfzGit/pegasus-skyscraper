@@ -8,17 +8,28 @@ The media folder and the metadata file are both stored [DIRECTORY]
 
 * Dependencies
     =Skyscraper v3.7.7+= AUR / [[https://github.com/muldjord/skyscraper][github]]
+
     =pegasus-frontend-git= AUR / [[https://github.com/mmatyas/pegasus-frontend][github]]
 * Installation
 you can download the executable or use =wget=.
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk && chmod a+x pgsk && mv pgsk /usr/bin/
 #+END_SRC
-
-
 * Usage
 USAGE: pgsk [DIRECTORY] [CONSOLE]
+
+[DIRECTORY] = Location of the console games folder
+[CONSOLE] = name of the console
+* Examples
+** Examples 1
+Fetching media for a GBA game:
 
 EXAMPLE: pgsk ~/Games/GBA/ gba
 
 stores media and metadata in '~/Games/GBA/'
+** Examples 2
+Fetching media for a WII game:
+
+EXAMPLE: pgsk ~/Games/WII/ wii
+
+stores media and metadata in '~/Games/WII/'
