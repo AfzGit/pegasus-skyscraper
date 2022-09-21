@@ -20,11 +20,11 @@ chmod a+x pgsk
 sudo mv pgsk /usr/bin/
 #+END_SRC
 * Usage
-=pgsk [DIRECTORY] [CONSOLE]=
+=pgsk [DIRECTORY] [PLATFORM]=
 
-[DIRECTORY] = Location of the games folder (~/Games/PSP)
+[DIRECTORY] = Location of the games folder (like ~/Games/PSP)
 
-[CONSOLE] = name of the console (always lowercase)
+[PLATFORM] = name of the console/platform (always lowercase, like =ps2=)
 
 The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
 * Examples
