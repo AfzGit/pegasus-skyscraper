@@ -1,7 +1,7 @@
 * About
 Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend.
 
-Pegasus-frontend + Skyscraper = Pegasus Scraper
+[[https://github.com/mmatyas/pegasus-frontend][Pegasus-frontend]] + [[https://github.com/muldjord/skyscraper][Skyscraper]] = Pegasus Scraper
 
 Screenscraper is used as the default scraper.
 The media folder and the metadata file are both stored [DIRECTORY]
@@ -9,11 +9,15 @@ The media folder and the metadata file are both stored [DIRECTORY]
 * Dependencies
 - =Skyscraper v3.7.7+= AUR / [[https://github.com/muldjord/skyscraper][github]]
 - =pegasus-frontend-git= AUR / [[https://github.com/mmatyas/pegasus-frontend][github]]
+- =wget=
 * Installation
-you can download the executable or use =wget=.
+you can download the executable using =wget=.
+
 #+BEGIN_SRC bash
-wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk && chmod a+x pgsk && mv pgsk /usr/bin/
+wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk && chmod a+x pgsk && sudo mv pgsk /usr/bin/
 #+END_SRC
+
+Note: pgsk is stored in your /usr/bin folder.
 * Usage
 =pgsk [DIRECTORY] [CONSOLE]=
 
@@ -21,15 +25,17 @@ wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk && ch
 
 [CONSOLE] = name of the console
 * Examples
-- Examples 1
+- Example 1:
   Fetching media for a GBA game:
 
   =pgsk ~/Games/GBA/ gba=
 
   stores media and metadata in '~/Games/GBA/'
-- Examples 2
+- Example 2:
   Fetching media for a WII game:
 
   =pgsk ~/Games/WII/ wii=
 
   stores media and metadata in '~/Games/WII/'
+
+then add the metadata file in pegasus-frontend for media and games to be detected.
