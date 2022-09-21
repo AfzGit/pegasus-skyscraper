@@ -25,7 +25,7 @@ Alternatively, download the executable from the [[https://github.com/AfzGit/pega
 * Usage
 =pgsk [DIRECTORY] [CONSOLE]=
 
-[DIRECTORY] = Location of the console games folder
+[DIRECTORY] = Location of the games folder (~/Games/PSP)
 
 [CONSOLE] = name of the console (always lowercase)
 
