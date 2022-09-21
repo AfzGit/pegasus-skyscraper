@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Help
+if [[ "$1" = "-h" || "$1" = "--help" ]]; then
+
+    echo -e "USAGE: pgsk [DIRECTORY] [CONSOLE] \n"
+    echo "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend."
+    echo "The media folder and the metadata file are both stored [DIRECTORY]"
+    echo "pgsk uses Screenscraper by default."
+    echo -e "\nEXAMPLE: pgsk ~/Games/GBA/ gba\n"
+    echo "stores media and metadata in '~/Games/GBA/'"
+
+# Check if the inputs are correct, then execute
+elif [[ -e "$1" && -n "$2" ]]; then
+
+    dire=$1
+    cons=$2
+    echo "Directory: $dire"
+    echo "Console  : $cons"
+
+    Skyscraper -s screenscraper -i $dire -p $cons
+    echo -e "\n=== Scraping compelete, proceeding with metadata generation ===\n"
+    Skyscraper -f pegasus -i $dire -p $cons
+    echo -e "\n=== Pegasus metadata creation complete ===\n"
+
+# Incorrect inputs
+else
+
+    if ! [[ -e "$1" ]]; then
+        echo "Directory '$1' does not exists."
+    elif ! [[ -n "$2" ]]; then
+        echo "Directory '$1' exists but console input is missing."
+    fi
+
+    echo -e "\nError using inputs '$1' '$2'"
+    echo -e "Directory and console name required in proper format:\n"
+    echo -e "USAGE   : pgsk [DIRECTORY] [CONSOLE]\n"
+    echo "EXAMPLE : pgsk ~/Games/GBA/ gba"
+
+fi
