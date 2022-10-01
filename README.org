@@ -52,10 +52,10 @@ stores media and metadata in "~/Games/GBA/"
 ** Example 2:
 Fetching media for a WII game and setting a command:
 
-
 #+BEGIN_SRC bash
 pgsk ~/Games/WII/ wii "dolphin-emu {file.path}"
 #+END_SRC
+
 stores media and metadata in "~/Games/WII/"
 also sets the command to execute when selected in pegasus.
 Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be called automatically next time without the [COMMAND] argument for wii.
