@@ -35,11 +35,11 @@ sudo mv pgsk /usr/bin/
 
 [PLATFORM] = name of the console/platform (always lowercase, like =ps2=)
 
-"[COMMAND]" = Optional command to execute when game is selected in pegasus, needs to be in quotes (like ="pcsx2-qt {file.path}"=)
+"[COMMAND]" = Optional command to execute when game is selected in pegasus, needs to be in quotes (like "pcsx2-qt {file.path}")
 
 The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
 
-The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same platform.
+The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
 * Examples
 - Example 1:
   Fetching media for a GBA game:
@@ -50,7 +50,7 @@ The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute a
 - Example 2:
   Fetching media for a WII game and setting a command:
 
-  =pgsk ~/Games/WII/ wii= "dolphin-emu {file.path}"
+  =pgsk ~/Games/WII/ wii "dolphin-emu {file.path}"=
 
   stores media and metadata in "~/Games/WII/"
   also sets the command to execute when selected in pegasus.
