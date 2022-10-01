@@ -29,13 +29,13 @@ chmod a+x pgsk
 sudo mv pgsk /usr/bin/
 #+END_SRC
 * Usage
-=pgsk [DIRECTORY] [PLATFORM] "[COMMAND]"=
+=pgsk [DIRECTORY] [PLATFORM] [COMMAND]=
 
 [DIRECTORY] = Location of the games folder (like =~/Games/PS2=)
 
 [PLATFORM] = name of the console/platform (always lowercase, like =ps2=)
 
-"[COMMAND]" = Optional command to execute when game is selected in pegasus (like ="pcsx2-qt {file.path}"=)
+"[COMMAND]" = Optional command to execute when game is selected in pegasus, needs to be in quotes (like ="pcsx2-qt {file.path}"=)
 
 The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
 
