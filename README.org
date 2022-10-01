@@ -44,7 +44,9 @@ The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute a
 - Example 1:
   Fetching media for a GBA game:
 
-  =pgsk ~/Games/GBA/ gba=
+  #+BEGIN_SRC bash
+  pgsk ~/Games/GBA/ gba
+  #+END_SRC
 
   stores media and metadata in "~/Games/GBA/"
 - Example 2:
@@ -56,4 +58,4 @@ The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute a
   #+END_SRC
   stores media and metadata in "~/Games/WII/"
   also sets the command to execute when selected in pegasus.
-  Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be called automatically without [COMMAND] argument
+  Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be called automatically next time without the [COMMAND] argument for wii.
