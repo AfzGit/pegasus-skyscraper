@@ -7,26 +7,39 @@ Screenscraper is used as the default scraper.
 * Requirements
 + =skyscraper-git= [[https://aur.archlinux.org/packages/skyscraper-git][AUR]] / [[https://github.com/muldjord/skyscraper][github]]
 + =pegasus-frontend-git= [[https://aur.archlinux.org/packages/pegasus-frontend-git][AUR]] / [[https://github.com/mmatyas/pegasus-frontend][github]]
-+ =wget=
++ =wget= (only for installation)
   - Debian
     - =sudo apt install wget=
   - Arch
     - =sudo pacman -S wget=
++ =choose=
+  - cargo
+    - =cargo install choose=
+  - Arch
+    - =sudo pacman -S choose=
++ =sed=
+  - Debian
+    - =sudo apt install sed=
+  - Arch
+    - =sudo pacman -S sed=
 * Installation
-- Download pgsk with =wget=, give it execution permission and store it in /usr/bin
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk
 chmod a+x pgsk
 sudo mv pgsk /usr/bin/
 #+END_SRC
 * Usage
-=pgsk [DIRECTORY] [PLATFORM]=
+=pgsk [DIRECTORY] [PLATFORM] "[COMMAND]"=
 
-[DIRECTORY] = Location of the games folder (like ~/Games/PSP)
+[DIRECTORY] = Location of the games folder (like =~/Games/PS2=)
 
 [PLATFORM] = name of the console/platform (always lowercase, like =ps2=)
 
+"[COMMAND]" = Optional command to execute when game is selected in pegasus (like ="pcsx2-qt {file.path}"=)
+
 The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
+
+The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same platform.
 * Examples
 - Example 1:
   Fetching media for a GBA game:
@@ -35,8 +48,10 @@ The media folder and the metadata file are both stored in [DIRECTORY]. Add the m
 
   stores media and metadata in "~/Games/GBA/"
 - Example 2:
-  Fetching media for a WII game:
+  Fetching media for a WII game and setting a command:
 
-  =pgsk ~/Games/WII/ wii=
+  =pgsk ~/Games/WII/ wii= "dolphin-emu {file.path}"
 
   stores media and metadata in "~/Games/WII/"
+  also sets the command to execute when selected in pegasus.
+  Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be called automatically without [COMMAND] argument

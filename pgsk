@@ -3,25 +3,88 @@
 # Help
 if [[ "$1" = "-h" || "$1" = "--help" ]]; then
 
-    echo -e "USAGE: pgsk [DIRECTORY] [PLATFORM] \n"
+    echo -e "USAGE: pgsk [DIRECTORY] [PLATFORM] \"[COMMAND]\"\n"
     echo "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend."
     echo "The media folder and the metadata file are both stored [DIRECTORY]"
-    echo "pgsk uses Screenscraper by default."
-    echo -e "\nEXAMPLE: pgsk ~/Games/GBA/ gba"
-    echo "stores media and metadata in '~/Games/GBA/'"
+    echo "[COMMAND] is optional. It is stored in ~/.config/pgsk/commands.txt"
+    echo -e "\nEXAMPLE: pgsk ~/Games/PS2/ ps2 \"pcsx2-qt {file.path}\""
+    echo "stores media and metadata in '~/Games/GBA/'. The commands are stored in ~/.config/pgsk/commands.txt"
 
 # Check if the inputs are correct, then execute
 elif [[ -e "$1" && -n "$2" ]]; then
 
-    dire=$1
-    plat=$2
-    echo "Directory : $dire"
-    echo "Platform  : $plat"
+    # pgsk directory doesn't exist?
+    if ! [[ -e ~/.config/pgsk ]]; then
+        echo "Creating ~/.config/pgsk/"
+        mkdir ~/.config/pgsk
+    fi
+    # commands file doesn't exist?
+    if ! [[ -e ~/.config/pgsk/commands.txt ]]; then
+        echo "Creating ~/.config/pgsk/commands.txt"
+        touch ~/.config/pgsk/commands.txt
+    fi
 
-    Skyscraper -s screenscraper -i $dire -p $plat
-    echo -e "\n=== Scraping compelete, proceeding with metadata generation ===\n"
-    Skyscraper -f pegasus -i $dire -p $plat
-    echo -e "\n=== Pegasus metadata creation complete ===\n"
+    # check if platform config already exists 0 = no, 1 = yes...
+    i=0
+    for y in {1..199}
+    do
+        check=$(choose -i ~/.config/pgsk/commands.txt -f : 0 | sed -n $y'p')
+        if [[ "$check" = "$2" ]]; then
+            # found!
+            i=1
+            platcommand=$(choose -i ~/.config/pgsk/commands.txt -f : 1 | sed -n $y'p')
+            echo "Found command '$platcommand' for '$2'"
+        fi
+    done
+    if [[ "$i" = "0" ]]; then
+        platcommand=default
+    fi
+
+    # if 3rd argument is supplied, store the command in a file with platform...
+    if [[ -n "$3" ]]; then
+        echo -e "=== Command '$3' for platform '$2'... ==="
+
+        if ! [[ "$i" = "1" ]]; then
+            echo "$2:$3" >> ~/.config/pgsk/commands.txt
+        else
+            echo "Platform configuration found for $2, skipping..."
+        fi
+
+        dire=$1
+        plat=$2
+        comm=$3
+        echo "Directory : $dire"
+        echo "Platform  : $plat"
+        echo "Command   : $comm"
+
+        Skyscraper -s screenscraper -i $dire -p $plat
+        echo -e "\n=== Scraping compelete, proceeding with metadata generation ===\n"
+        Skyscraper -f pegasus -i $dire -p $plat -e "$comm"
+        echo -e "\n=== Pegasus metadata creation complete ===\n"
+
+    # no 3rd argument, proceed as normal.
+    elif ! [[ -n "$3" ]]; then
+        dire=$1
+        plat=$2
+        echo "Directory : $dire"
+        echo "Platform  : $plat"
+        if [[ $platcommand = "default" ]]; then
+
+            echo "Command   : default"
+            Skyscraper -s screenscraper -i $dire -p $plat
+            echo -e "\n=== Scraping compelete, proceeding with metadata generation ===\n"
+            Skyscraper -f pegasus -i $dire -p $plat
+            echo -e "\n=== Pegasus metadata creation complete ===\n"
+
+        else
+
+            echo "Command   : $platcommand"
+            Skyscraper -s screenscraper -i $dire -p $plat
+            echo -e "\n=== Scraping compelete, proceeding with metadata generation ===\n"
+            Skyscraper -f pegasus -i $dire -p $plat -e "$platcommand"
+            echo -e "\n=== Pegasus metadata creation complete ===\n"
+        fi
+    fi
 
 # Incorrect inputs
 else
@@ -33,9 +96,12 @@ else
         echo "Platform not specified."
     fi
 
-    echo -e "\nError using inputs '$1' '$2'"
-    echo -e "Directory and console name required in proper format:\n"
-    echo "USAGE   : pgsk [DIRECTORY] [PLATFORM]"
-    echo "EXAMPLE : pgsk ~/Games/GBA/ gba"
+    echo ""
+
+    echo "USAGE   : pgsk [DIRECTORY] [PLATFORM] \"[COMMAND]\""
+
+    echo ""
+
+    echo "EXAMPLE : pgsk ~/Games/PS2/ ps2 \"pcsx2-qt {file.path}\""
 
 fi
