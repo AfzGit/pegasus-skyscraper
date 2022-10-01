@@ -4,11 +4,16 @@
 if [[ "$1" = "-h" || "$1" = "--help" ]]; then
 
     echo -e "USAGE: pgsk [DIRECTORY] [PLATFORM] \"[COMMAND]\"\n"
-    echo "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend."
-    echo "The media folder and the metadata file are both stored [DIRECTORY]"
-    echo "[COMMAND] is optional. It is stored in ~/.config/pgsk/commands.txt"
+    echo "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend"
+    echo "The media folder and the metadata file are both stored in [DIRECTORY]"
+    echo "[COMMAND] is optional and is stored in ~/.config/pgsk/commands.txt"
     echo -e "\nEXAMPLE: pgsk ~/Games/PS2/ ps2 \"pcsx2-qt {file.path}\""
     echo "stores media and metadata in '~/Games/GBA/'. The commands are stored in ~/.config/pgsk/commands.txt"
+
+# supported platforms
+elif [[ "$1" = "-p" || "$1" = "--platform" ]]; then
+    echo "=== Supported platforms are: ==="
+    echo "3do, 3ds, amiga, amigacd32, amstradcpc, apple2, arcade, astrocde, atari800, atari2600, atari5200, atari7800, atarijaguar, atarijaguarcd, atarilynx, atarist, atomiswave, c16, c64, c128, channelf, coco, coleco, daphne, dragon32, dreamcast, easyrpg, fba, fds, gameandwatch, gamegear, gb, gba, gbc, gc, genesis, intellivision, mame-advmame, mame-libretro, mame-mame4all, mastersystem, megacd, megadrive, moto, msx, msx2, n64, naomi, nds, neogeo, neogeocd, nes, ngp, ngpc, openbor, oric, pc, pc88, pc98, pcfx, pcengine, pcenginecd, pico8, pokemini, ports, ps2, psp, psx, saturn, scummvm, sega32x, segacd, sg-1000, snes, steam, switch, ti99, trs-80, vectrex, vic20, videopac, virtualboy, wii, wiiu, wonderswan, wonderswancolor, x68000, x1, zmachine, zx81, zxspectrum"
 
 # Check if the inputs are correct, then execute
 elif [[ -e "$1" && -n "$2" ]]; then
