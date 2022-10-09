@@ -65,3 +65,16 @@ pgsk ~/Games/WII/ wii "dolphin-emu {file.path}"
 stores media and metadata in "~/Games/WII/"
 also sets the command to execute when selected in pegasus.
 Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be called automatically next time without the [COMMAND] argument for wii.
+** Example 3:
+It is recommended to drop all your commands in the config file:
+
+~/config/pgsk/commands.txt
+#+BEGIN_SRC bash
+gba:mgba-qt -f {file.path}
+#+END_SRC
+
+then use pgsk and it will detect the command automatically and set it.
+
+#+BEGIN_SRC bash
+pgsk ~/Games/GBA/ gba
+#+END_SRC
