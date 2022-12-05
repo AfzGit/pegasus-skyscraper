@@ -48,11 +48,11 @@ sudo mv pgsk /usr/bin/
 
 "[COMMAND]" = Optional command to execute when game is selected in pegasus-frontend, needs to be in quotes (like "pcsx2-qt {file.path}")
 
-Note 1: The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
+- Notes:
+  - The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
+  - The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
+  - View supported platform by writing =pgsk -p=
 
-Note 2: The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
-
-Note 3: View supported platform by writing =pgsk -p=
 * Examples
 ** Example 1:
 Fetching media for a GBA game:
