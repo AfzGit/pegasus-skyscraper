@@ -3,12 +3,13 @@
 # Help
 if [[ "$1" = "-h" || "$1" = "--help" ]]; then
 
-    echo -e "USAGE: pgsk [DIRECTORY] [PLATFORM] \"[COMMAND]\"\n"
-    echo "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend"
-    echo "The media folder and the metadata file are both stored in [DIRECTORY]"
-    echo "[COMMAND] is optional and is stored in ~/.config/pgsk/commands.txt"
+    echo -e "Usage: pgsk [DIRECTORY] [PLATFORM] \"[COMMAND]\"\n"
+    echo -e "Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend\n"
+    echo -e "-> pgsk -p or pgsk --platform to see supported platforms"
+    echo -e "-> The media folder and the metadata file are both stored in [DIRECTORY]"
+    echo -e "-> [COMMAND] is optional and is stored in ~/.config/pgsk/commands.txt"
     echo -e "\nEXAMPLE: pgsk ~/Games/PS2/ ps2 \"pcsx2-qt {file.path}\""
-    echo "stores media and metadata in '~/Games/GBA/'. The commands are stored in ~/.config/pgsk/commands.txt"
+    echo -e "-> stores media and metadata in '~/Games/GBA/'. The commands are stored in ~/.config/pgsk/commands.txt"
 
 # supported platforms
 elif [[ "$1" = "-p" || "$1" = "--platform" ]]; then
