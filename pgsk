@@ -31,13 +31,15 @@ elif [[ -e "$1" && -n "$2" ]]; then
 
     # check if platform config already exists 0 = no, 1 = yes...
     i=0
+    lines=$(wc -l ~/.config/pgsk/commands.txt | awk '{print $1}')
+    echo "$lines lines found in config file..."
     for y in {1..199}
     do
-        check=$(choose -i ~/.config/pgsk/commands.txt -f : 0 | sed -n $y'p')
-        if [[ "$check" = "$2" ]]; then
+        platform=$(awk -F: '{ print $1 }' ~/.config/pgsk/commands.txt | sed -n $y'p')
+        if [[ "$platform" = "$2" ]]; then
             # found!
             i=1
-            platcommand=$(choose -i ~/.config/pgsk/commands.txt -f : 1 | sed -n $y'p')
+            platcommand=$(awk -F: '{ print $2 }' ~/.config/pgsk/commands.txt  | sed -n $y'p')
             echo "Found command '$platcommand' for '$2'"
         fi
     done
