@@ -39,7 +39,7 @@ elif [[ -e "$1" && -n "$2" ]]; then
         if [[ "$platform" = "$2" ]]; then
             # found!
             i=1
-            platcommand=$(awk -F: '{ print $2 }' ~/.config/pgsk/commands.txt  | sed -n $y'p')
+            platcommand=$(awk -F: '{ print $2 }' ~/.config/pgsk/commands.txt | sed -n $y'p')
             echo "Found command '$platcommand' for '$2'"
         fi
     done

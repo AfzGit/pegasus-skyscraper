@@ -1,5 +1,5 @@
 * About
-Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend.
+Pegasus Skyscraper is a game scraper and metadata generator for the Pegasus-frontend written in Bash.
 
 [[https://github.com/mmatyas/pegasus-frontend][Pegasus-frontend]] + [[https://github.com/muldjord/skyscraper][Skyscraper]] = Pegasus Skyscraper
 
@@ -13,24 +13,29 @@ Screenscraper is used as the default scraper.
 + =pegasus-frontend-git= [[https://aur.archlinux.org/packages/pegasus-frontend-git][AUR]] / [[https://github.com/mmatyas/pegasus-frontend][github]]
   - Arch
     - =sudo yay -S pegasus-frontend-git=
-+ =wget= (only for installation)
++ =wget= or =curl= (only for installation)
   - Debian
     - =sudo apt install wget=
+    - =sudo apt install curl=
   - Arch
     - =sudo pacman -S wget=
-+ =choose=
-  - cargo
-    - =cargo install choose=
-  - Arch
-    - =sudo pacman -S choose=
+    - =sudo pacman -S curl=
 + =sed=
   - Debian
     - =sudo apt install sed=
   - Arch
     - =sudo pacman -S sed=
 * Installation
+1. using wget
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk
+chmod a+x pgsk
+sudo mv pgsk /usr/bin/
+#+END_SRC
+
+2. using curl
+#+BEGIN_SRC bash
+curl https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk --output pgsk
 chmod a+x pgsk
 sudo mv pgsk /usr/bin/
 #+END_SRC
@@ -41,11 +46,11 @@ sudo mv pgsk /usr/bin/
 
 [PLATFORM] = name of the console/platform (always lowercase, like =ps2=)
 
-"[COMMAND]" = Optional command to execute when game is selected in pegasus, needs to be in quotes (like "pcsx2-qt {file.path}")
+"[COMMAND]" = Optional command to execute when game is selected in pegasus-frontend, needs to be in quotes (like "pcsx2-qt {file.path}")
 
-The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
-
-The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
+Note 1: The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
+Note 2: The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
+Note 3: View supported platform by writing =pgsk -p=
 * Examples
 ** Example 1:
 Fetching media for a GBA game:
