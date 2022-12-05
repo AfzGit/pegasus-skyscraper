@@ -1,0 +1,13 @@
+psx:retroarch -L /home/afz/.config/retroarch/cores/swanstation_libretro.so {file.path}
+ps2:pcsx2-qt {file.path}
+wii:dolphin-emu {file.path}
+gba:mgba-qt -f {file.path}
+snes:retroarch -L /home/afz/.config/retroarch/cores/snes9x_libretro.so {file.path}
+n64:mupen64plus {file.path}
+psp:PPSSPPSDL {file.path}
+nds:melonDS {file.path}
+gc:dolphin-emu {file.path}
+pcengine:retroarch -L /home/afz/.config/retroarch/cores/mednafen_pce_libretro.so {file.path}
+dreamcast:retroarch -L /home/afz/.config/retroarch/cores/flycast_libretro.so {file.path}
+switch:Ryujinx {file.path}
+3ds:citra-qt {file.path}
