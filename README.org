@@ -26,14 +26,14 @@ Screenscraper is used as the default scraper.
   - Arch
     - =sudo pacman -S sed=
 * Installation
-1. using wget
+- Using wget
 #+BEGIN_SRC bash
 wget https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk
 chmod a+x pgsk
 sudo mv pgsk /usr/bin/
 #+END_SRC
 
-2. using curl
+- Using curl
 #+BEGIN_SRC bash
 curl https://raw.githubusercontent.com/AfzGit/pegasus-skyscraper/main/pgsk --output pgsk
 chmod a+x pgsk
@@ -49,7 +49,9 @@ sudo mv pgsk /usr/bin/
 "[COMMAND]" = Optional command to execute when game is selected in pegasus-frontend, needs to be in quotes (like "pcsx2-qt {file.path}")
 
 Note 1: The media folder and the metadata file are both stored in [DIRECTORY]. Add the metadata file in pegasus-frontend for media and games to be detected.
+
 Note 2: The "[COMMAND]" will be stored in ~/.config/pgsk/commands.txt and will execute automatically the next time for the same [PLATFORM].
+
 Note 3: View supported platform by writing =pgsk -p=
 * Examples
 ** Example 1:
@@ -73,7 +75,7 @@ Once set, these commands are stored in "~/.config/pgsk/commands.txt" and will be
 ** Example 3:
 It is recommended to drop all your commands in the config file:
 
-~/config/pgsk/commands.txt
+~/config/pgsk/commands.txt (Check config sample [[https://github.com/AfzGit/pegasus-skyscraper/blob/main/sample-config/.config/pgsk/commands.txt][here]])
 #+BEGIN_SRC bash
 gba:mgba-qt -f {file.path}
 #+END_SRC
