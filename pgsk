@@ -34,7 +34,7 @@ elif [[ -e "$1" && -n "$2" ]]; then
     i=0
     lines=$(wc -l ~/.config/pgsk/commands.txt | awk '{print $1}')
     echo "$lines lines found in config file..."
-    for y in {1..199}
+    for y in $(eval echo "{1..$lines}")
     do
         platform=$(awk -F: '{ print $1 }' ~/.config/pgsk/commands.txt | sed -n $y'p')
         if [[ "$platform" = "$2" ]]; then
